@@ -4,8 +4,16 @@
     dest: "/etc/systemd/system/{{ component }}.service"
   notify: daemon reload
 
+- name: flush handlers to reload daemon
+  ansible.builtin.meta: flush_handlers
+
 - name: start the service
   ansible.builtin.service:
     name: "{{ component }}"
-    state: restarted
+    state: started
     enabled: yes
+
+- name: wait for service to stabilize
+  ansible.builtin.pause:
+    seconds: 3
+  when: service_start.changed
