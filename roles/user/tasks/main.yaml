@@ -13,6 +13,18 @@
     name: common
     tasks_from: system-setup.yaml
 
+- name: start the service
+  ansible.builtin.service:
+    name: "{{ component }}"
+    state: started
+    enabled: yes
+  register: service_start
+
+- name: Wait for service to stabilize
+  ansible.builtin.pause:
+    seconds: 3
+  when: service_start.changed
+
 
 
 
