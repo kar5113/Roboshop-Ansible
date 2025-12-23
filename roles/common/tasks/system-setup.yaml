@@ -2,10 +2,15 @@
   ansible.builtin.template:
     src: "{{ component }}.service.j2"
     dest: /etc/systemd/system/{{ component }}.service
-  notify: Daemon reload
+
+
+- name: Daemon reload
+  ansible.builtin.systemd:
+    daemon_reload: yes
 
 - name: Start service
   ansible.builtin.service:
     name: "{{ component }}"
     enabled: yes
     state: restarted
+
