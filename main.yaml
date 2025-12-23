@@ -1,6 +1,6 @@
 - name : "{{ component }} installation"
   hosts: "{{ component }}"
-  become: yes
   connection: local
+  become: yes
   roles: 
     - "{{ component }}"
