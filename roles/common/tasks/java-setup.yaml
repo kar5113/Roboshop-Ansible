@@ -1,11 +1,14 @@
-- name: Installing maven
-  ansible.builtin.package:
-    name: maven 
+- name: install maven
+  ansible.builtin.dnf:
+    name: "{{ item }}"
     state: present
+  loop:
+  - maven
+  - mysql
 
-- name: Maven clean Install
-  ansible.builtin.command: mvn clean install
-  args:   
+- name: install dependencies
+  ansible.builtin.command: mvn clean package
+  args:
     chdir: /app
 
 - name: rename {{ component }}.jar
