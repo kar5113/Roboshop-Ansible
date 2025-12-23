@@ -7,14 +7,5 @@
 - name: flush handlers to reload daemon
   ansible.builtin.meta: flush_handlers
 
-- name: start the service
-  ansible.builtin.service:
-    name: "{{ component }}"
-    state: started
-    enabled: yes
-  register: service_start
 
-- name: wait for service to stabilize
-  ansible.builtin.pause:
-    seconds: 3
-  when: service_start.changed
+
