@@ -12,6 +12,7 @@
     name: "{{ component }}"
     state: started
     enabled: yes
+  register: service_start
 
 - name: wait for service to stabilize
   ansible.builtin.pause:
