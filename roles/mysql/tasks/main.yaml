@@ -8,7 +8,7 @@
     name: 
       - boto3
       - botocore
-  executable: python3
+    executable: python3
 
 
 - name: Start and enable mysql server
