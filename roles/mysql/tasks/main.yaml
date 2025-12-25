@@ -1,11 +1,14 @@
 - name: Install my sql server
   ansible.builtin.package:
-    name: "{{ item }}"
+    name: mysql-server
     state: present
-  loop:
-    - mysql-server
-    - boto3
-    - botocore
+
+- name: Install boto 3 and botocore
+  ansible.builtin.pip:
+    name: 
+      - boto3
+      - botocore
+  executable: python3
 
 
 - name: Start and enable mysql server
