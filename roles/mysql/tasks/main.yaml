@@ -1,6 +1,6 @@
 - name: Install my sql server
   ansible.builtin.package:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   loop:
     - mysql-server
