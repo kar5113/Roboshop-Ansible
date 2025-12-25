@@ -8,4 +8,4 @@ PAYMENT_HOST: payment-{{ env }}.kardev.space
 CART_HOST: cart-{{ env }}.kardev.space
 SHIPPING_HOST: shipping-{{ env }}.kardev.space
 FRONTEND_HOST: frontend-{{ env }}.kardev.space
-MY_SQL_ROOT_PASSWORD: "{{ lookup('amazon.aws.aws_ssm', 'my_sql_root_password', region='us-east-1' ) }}"
+MY_SQL_ROOT_PASSWORD: "{{ lookup('amazon.aws.aws_ssm', '/roboshop/my_sql/root_password', region='us-east-1' ) }}"
