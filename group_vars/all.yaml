@@ -2,10 +2,10 @@ REDIS_HOST: redis-{{ env }}.kardev.space
 MONGODB_HOST: mongodb-{{ env }}.kardev.space
 MYSQL_HOST: mysql-{{ env }}.kardev.space
 RABBITMQ_HOST: rabbitmq-{{ env }}.kardev.space
-CATALOGUE_HOST: catalogue-{{ env }}.kardev.space
-USER_HOST: user-{{ env }}.kardev.space
-PAYMENT_HOST: payment-{{ env }}.kardev.space
-CART_HOST: cart-{{ env }}.kardev.space
-SHIPPING_HOST: shipping-{{ env }}.kardev.space
-FRONTEND_HOST: frontend-{{ env }}.kardev.space
+CATALOGUE_HOST: catalogue.backend-alb-{{ env }}.kardev.space
+USER_HOST: user.backend-alb-{{ env }}.kardev.space
+PAYMENT_HOST: payment.backend-alb-{{ env }}.kardev.space
+CART_HOST: cart.backend-alb-{{ env }}.kardev.space
+SHIPPING_HOST: shipping.backend-alb-{{ env }}.kardev.space
+FRONTEND_HOST: frontend.backend-alb-{{ env }}.kardev.space
 MY_SQL_ROOT_PASSWORD: "{{ lookup('amazon.aws.aws_ssm', '/roboshop/my_sql/root_password', region='us-east-1' ) }}"
